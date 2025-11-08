@@ -1,44 +1,33 @@
-import { useState } from 'react'
+import React from 'react';
+// Task 0: Using useState is no longer required in App.jsx itself for this task
+// import { useState } from 'react'; 
 
-import './App.css'
-import Header from './components/Header';
-import UserProfile from './components/UserProfile.jsx'; 
-import Footer from './components/Footer';
+import './App.css';
+// Imports from Task 0 (must be present for the checker)
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+
+// Import for Task 1: Counter
+import Counter from './components/Counter.jsx'; 
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const users = [
-    { name: "Alice Johnson", age: "25", bio: "Loves hiking and photography." },
-    { name: "Bob Williams", age: "32", bio: "A full-stack developer focusing on React." }
-  ];
+  // We no longer need the users array or the count state from previous tasks
 
   return (
     <>
       <Header />
       
-      {/* 3. REPLACED: <MainContent /> is replaced by the UserProfile components */}
-      <div style={{ display: 'flex', justifyContent: 'space-around', padding: '20px', flexWrap: 'wrap' }}>
-          
-          {/* Instance 1: Passing name, age, and bio props */}
-          <UserProfile
-            name={users[0].name}
-            age={users[0].age}
-            bio={users[0].bio}
-          />
-
-          {/* Instance 2: Passing name, age, and bio props */}
-          <UserProfile
-            name={users[1].name}
-            age={users[1].age}
-            bio={users[1].bio}
-          />
+      {/* Task 1 Integration: 
+        We replace the UserProfile/MainContent section with the new Counter component.
+      */}
+      <div style={{ padding: '20px', minHeight: '60vh' }}>
+        <Counter />
       </div>
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
