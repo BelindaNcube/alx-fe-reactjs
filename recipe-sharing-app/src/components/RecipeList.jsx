@@ -1,4 +1,4 @@
-import { useRecipeStore } from '../store/useRecipeStore';
+import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
   // Selects only the 'recipes' array from the store state
