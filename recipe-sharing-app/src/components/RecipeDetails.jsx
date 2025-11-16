@@ -33,6 +33,7 @@ const RecipeDetails = () => {
           <p style={{ fontSize: '1.1em', lineHeight: '1.5' }}>
             **Description:** {recipe.description}
           </p>
+          
 
           <button 
             onClick={() => setIsEditing(true)}
@@ -40,7 +41,7 @@ const RecipeDetails = () => {
           >
             Edit Recipe
           </button>
-          
+          <FavoriteButton recipeId={recipe.id} /> {/* NEW: Add Favorite Button */}
           <DeleteRecipeButton recipeId={recipe.id} />
         </div>
       )}
