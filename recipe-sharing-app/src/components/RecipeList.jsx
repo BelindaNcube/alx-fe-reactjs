@@ -1,18 +1,20 @@
 import { useRecipeStore } from './recipeStore';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
-  const recipes = useRecipeStore(state => state.recipes);
-
+  // 💡 Change: Select the 'filteredRecipes' array instead of the raw 'recipes' array
+  const recipes = useRecipeStore(state => state.filteredRecipes); 
+  
+  // The rest of the component logic remains the same, displaying the 'recipes' (now filtered) array
   return (
     <div style={{ padding: '20px', border: '1px solid #ccc' }}>
-      <h2>Recipe List ({recipes.length})</h2>
+      <h2>Recipe List ({recipes.length} results)</h2> 
+      {/* ... rest of the rendering logic using the 'recipes' array ... */}
       {recipes.length === 0 ? (
-        <p>No recipes added yet!</p>
+        <p>No recipes match your search criteria.</p>
       ) : (
         recipes.map(recipe => (
           <div key={recipe.id} style={{ marginBottom: '15px', padding: '10px', borderBottom: '1px dotted #eee' }}>
-            {/* VITAL: Use Link to navigate to the details page */}
             <Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none', color: '#007bff' }}>
               <h3>{recipe.title}</h3>
             </Link>
